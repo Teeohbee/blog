@@ -40,8 +40,8 @@ class BlogApp < Sinatra::Base
     end
   end
 
-  delete 'sessions/goodbye' do
-    session.clear
+  delete '/sessions' do
+    session[:user_id] = nil
     redirect '/'
   end
 

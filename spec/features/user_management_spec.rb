@@ -61,6 +61,12 @@ feature 'As a registered user' do
   end
 
   scenario 'I cannot sign in with the wrong password' do
+    user = build :user
+    user2 = build(:user, password: "wrong")
+    sign_up(user)
+    click_button 'Sign out'
+    sign_in(user2)
+    expect(page).to_not have_content "Welcome, #{user.username}"
   end
 
   scenario 'I can sign out' do
