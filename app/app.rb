@@ -16,7 +16,10 @@ class Blogs < Sinatra::Base
   end
 
   post '/blogs' do
-    Blog.create(content: params[:content], title: params[:title])
+    blog = Blog.create(content: params[:content], title: params[:title])
+    tag = Tag.create(name: params[:tag])
+    blog.tags << tag
+    blog.save
     redirect to('/blogs')
   end
 

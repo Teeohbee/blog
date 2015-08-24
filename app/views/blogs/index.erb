@@ -5,6 +5,7 @@
     <li>
       Title: <%= blog.title %>
       Blog:   <%= blog.content%>
+      Tag: <%= blog.tags.map(&:name)%>
     </li>
   <% end %>
 </ul>

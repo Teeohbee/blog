@@ -5,6 +5,7 @@ env = ENV['RACK_ENV'] || 'development'
 DataMapper.setup(:default, "postgres://localhost/blog_#{env}")
 
 require './app/models/blog.rb'
+require './app/models/tag.rb'
 
 DataMapper.finalize
 
