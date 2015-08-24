@@ -1,5 +1,4 @@
 feature 'Adding tags' do
-
   scenario 'I can add a single tag to a new Blog' do
     visit '/blogs/new'
     fill_in 'content', with: 'First blog'

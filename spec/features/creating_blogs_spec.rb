@@ -1,5 +1,4 @@
 feature 'Creating blogs' do
-
   scenario 'I can create a new blog' do
     visit '/blogs/new'
     fill_in 'content', with: 'First blog'
@@ -14,5 +13,4 @@ feature 'Creating blogs' do
   scenario 'there are no blogs in the database at the start of the test' do
     expect(Blog.count).to eq 0
   end
-
 end
