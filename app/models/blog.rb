@@ -3,7 +3,7 @@ class Blog
   include DataMapper::Resource
 
     property :id, Serial
-    property :content, String
+    property :content, Text, :length => 6000
     property :title, String
 
 end
