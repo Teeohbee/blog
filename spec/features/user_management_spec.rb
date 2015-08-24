@@ -1,5 +1,7 @@
-feature 'In order to sign up' do
+require 'byebug'
 
+feature 'In order to sign up' do
+ 
   scenario 'There is a sign up page that needs my information' do
     visit '/users/new'
     expect(page).to have_content "Enter the following to sign up"
@@ -12,11 +14,34 @@ feature 'In order to sign up' do
   end
 
   scenario 'I can sign up as a new user' do
-    visit '/users/new'
     user = build :user
     expect { sign_up(user) }.to change(User, :count).by(1)
     expect(page).to have_content "Welcome, #{user.username}"
     expect(User.first.username).to eq(user.username)
+  end
+
+  scenario 'I can sign up as a new user with a confirmed password' do
+    user = build(:user, password_confirmation: "wrong")
+    expect { sign_up(user) }.not_to change(User, :count)
+  end
+
+  scenario 'I must have a username to sign up' do
+    user = build(:user, username: "")
+    expect { sign_up(user) }.to change(User, :count).by(0)
+  end
+
+  scenario 'username must be unique' do
+    user = build(:user, email: "test@test.com")
+    user2 = build :user
+    sign_up(user2)
+    expect { sign_up(user) }.to change(User, :count).by(0)
+  end
+
+  scenario 'email must be unique' do
+    user = build(:user, username: "test")
+    user2 = build :user
+    sign_up(user2)
+    expect { sign_up(user) }.to change(User, :count).by(0)
   end
 
   def sign_up(user)
@@ -26,7 +51,7 @@ feature 'In order to sign up' do
     fill_in :name, with: user.name
     fill_in :phone, with: user.phone
     fill_in :password, with: user.password
-    fill_in :passwordconfirm, with: user.passwordconfirm
+    fill_in :password_confirmation, with: user.password_confirmation
     click_button "Sign up"
   end
 end

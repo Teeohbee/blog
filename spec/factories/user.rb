@@ -4,7 +4,7 @@ FactoryGirl.define do
     username "juantest"
     name "Juan Smith"
     password "12345"
-    passwordconfirm "12345"
+    password_confirmation "12345"
     phone "0208123456"
   end
 end
