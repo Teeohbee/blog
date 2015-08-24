@@ -127,11 +127,13 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  bcrypt
   byebug
   capybara
   data_mapper
   database_cleaner
   dm-postgres-adapter
+  dm-validations
   factory_girl
   rspec
   rspec-sinatra
