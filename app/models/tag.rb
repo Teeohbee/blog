@@ -3,6 +3,7 @@ class Tag
 
   property :id, Serial
   property :name, String
+  has n, :blogs, through: Resource
 
-  
+
 end
