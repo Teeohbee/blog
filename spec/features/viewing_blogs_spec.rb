@@ -5,7 +5,7 @@ feature 'Viewing Bloggs' do
   scenario 'I can see existing bloggs on the blogs page' do
   Blog.create(content: 'First Blog', title:'My First Blog')
 
-    visit '/BlogFeed'
+    visit '/blogs'
 
     expect(page.status_code).to eq 200
     within 'ul#blogs' do

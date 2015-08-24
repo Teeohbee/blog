@@ -6,9 +6,18 @@ class Blogs < Sinatra::Base
     'Hello Blog!'
   end
 
-  get '/BlogFeed' do
+  get '/blogs' do
     @blogs = Blog.all
     erb :'blogs/index'
+  end
+
+  get '/blogs/new' do
+    erb :'blogs/new'
+  end
+
+  post '/blogs' do
+    Blog.create(content: params[:content], title: params[:title])
+    redirect to('/blogs')
   end
 
   # start the server if ruby file executed directly
