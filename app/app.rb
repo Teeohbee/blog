@@ -1,6 +1,7 @@
 require 'sinatra/base'
+require_relative '../data_mapper_setup.rb'
 
-class Blog < Sinatra::Base
+class Blogs < Sinatra::Base
   get '/' do
     'Hello Blog!'
   end
