@@ -1,5 +1,5 @@
 feature 'In order to sign up' do
-
+ 
   scenario 'There is a sign up page that needs my information' do
     visit '/users/new'
     expect(page).to have_content "Enter the following to sign up"
