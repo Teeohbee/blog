@@ -55,9 +55,12 @@ class BlogApp < Sinatra::Base
 
   post '/blogs' do
     blog = Blog.create(content: params[:content], title: params[:title], time: Time.now)
-    tag = Tag.create(name: params[:tag])
-    blog.tags << tag
-    blog.save
+    tags_array = (params[:tags]).split(" ")
+    tags_array.each do |word|
+      tag = Tag.create(name: word.downcase)
+      blog.tags << tag
+      blog.save
+    end
     redirect to('/blogs')
   end
 
