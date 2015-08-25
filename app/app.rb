@@ -1,6 +1,5 @@
 require 'sinatra/base'
-require_relative 'data_mapper_setup'
-
+require_relative '../data_mapper_setup'
 
 class BlogApp < Sinatra::Base
   PERMITTED_PARAMS = [:email, :username, :name, :phone, :password, :password_confirmation]
@@ -45,6 +44,29 @@ class BlogApp < Sinatra::Base
     redirect '/'
   end
 
+  get '/blogs' do
+    @blogs = Blog.all
+    erb :'blogs/index'
+  end
+
+  get '/blogs/new' do
+    erb :'blogs/new'
+  end
+
+  post '/blogs' do
+    blog = Blog.create(content: params[:content], title: params[:title])
+    tag = Tag.create(name: params[:tag])
+    blog.tags << tag
+    blog.save
+    redirect to('/blogs')
+  end
+
+  get '/tags/:name' do
+    tag = Tag.first(name: params[:name])
+    @blogs = tag ? tag.blogs : []
+    erb :'blogs/index'
+  end
+
   def permitted_params(parameters)
     parameters.select{|k,v| PERMITTED_PARAMS.include?(k.to_sym)}
   end
@@ -55,4 +77,4 @@ class BlogApp < Sinatra::Base
 
   # start the server if ruby file executed directly
   run! if app_file == $0
-end
+  end
