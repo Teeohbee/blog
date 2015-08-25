@@ -1,4 +1,5 @@
 feature 'Creating blogs' do
+
   scenario 'I can create a new blog' do
     visit '/blogs/new'
     fill_in 'content', with: 'First blog'
@@ -7,6 +8,15 @@ feature 'Creating blogs' do
     expect(current_path).to eq '/blogs'
     within 'ul#blogs' do
       expect(page).to have_content('My First Blog')
+    end
+  end
+
+  scenario ' I can see time stamps on blog posts' do
+    Blog.create(title: 'Test title', content: 'Test content', time: '14:11')
+    visit '/blogs'
+    expect(page.status_code).to eq 200
+    within 'ul#blogs' do
+      expect(page).to have_content('14:11')
     end
   end
 

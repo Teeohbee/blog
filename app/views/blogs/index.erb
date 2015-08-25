@@ -1,11 +1,18 @@
-<h1> Blogs </h1>
+<h1>
+  Blogs
+</h1>
 
 <ul id="blogs">
   <% @blogs.each do |blog| %>
-    <li>
-      Title: <%= blog.title %>
-      Blog:   <%= blog.content%>
-      Tag: <%= blog.tags.map(&:name)%>
-    </li>
+  <li>
+    Title:
+    <%= blog.title %>
+    Blog:
+    <%= blog.content%>
+    Time:
+    <%= blog.time %>
+    Tag:
+    <%= blog.tags.map(&:name)%>
+  </li>
   <% end %>
 </ul>

@@ -54,7 +54,7 @@ class BlogApp < Sinatra::Base
   end
 
   post '/blogs' do
-    blog = Blog.create(content: params[:content], title: params[:title])
+    blog = Blog.create(content: params[:content], title: params[:title], time: Time.now)
     tag = Tag.create(name: params[:tag])
     blog.tags << tag
     blog.save
