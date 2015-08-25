@@ -30,6 +30,16 @@ end
     expect(Blog.count).to eq 0
   end
 
+  scenario 'I cannot blog unless logged in' do
+    click_button "Sign out"
+    visit '/blogs/new'
+    fill_in 'content', with: 'First blog'
+    fill_in 'title', with: 'My First Blog'
+    click_button 'Create Blog'
+    expect(current_path).to eq '/sessions/new'
+    expect(page).to have_content('Log in')
+  end
+
   def sign_up(user)
     visit '/users/new'
     fill_in :email, with: user.email
