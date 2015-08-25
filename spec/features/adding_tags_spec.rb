@@ -9,4 +9,7 @@ feature 'Adding tags' do
     blog = Blog.first
     expect(blog.tags.map(&:name)).to include('Tech')
   end
+
+
 end
+

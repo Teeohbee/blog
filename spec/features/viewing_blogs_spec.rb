@@ -3,14 +3,10 @@ require './data_mapper_setup'
 
 feature 'Viewing Bloggs' do
   scenario 'I can see existing bloggs on the blogs page' do
-  Blog.create(content: 'First Blog', title:'My First Blog')
-
+    Blog.create(content: 'First Blog', title:'My First Blog')
     visit '/blogs'
-
     expect(page.status_code).to eq 200
-    within 'ul#blogs' do
-      expect(page).to have_content('My First Blog')
-    end
+    expect(page).to have_content('My First Blog')
   end
 
   before(:each) do

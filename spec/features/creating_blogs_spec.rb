@@ -1,5 +1,9 @@
+require_relative 'user_management_spec'
+
 feature 'Creating blogs' do
-  scenario 'I can create a new blog' do
+  scenario 'I can create a new blog if signed' do
+    user = build :user
+    sign_up(user)
     visit '/blogs/new'
     fill_in 'content', with: 'First blog'
     fill_in 'title', with: 'My First Blog'

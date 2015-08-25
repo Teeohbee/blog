@@ -1,3 +1,4 @@
+require 'byebug'
 require 'sinatra/base'
 require_relative '../data_mapper_setup'
 
@@ -54,11 +55,21 @@ class BlogApp < Sinatra::Base
   end
 
   post '/blogs' do
-    blog = Blog.create(content: params[:content], title: params[:title])
-    tag = Tag.create(name: params[:tag])
-    blog.tags << tag
-    blog.save
-    redirect to('/blogs')
+    if session[:user_id]
+      blog = Blog.create(content: params[:content], title: params[:title])
+      tag = Tag.create(name: params[:tag])
+      blog.tags << tag
+      blog.save
+      redirect to('/blogs')
+    else
+      redirect 'sessions/new'
+    end
+  end
+
+  post '/comments' do
+    blog = Blog.get(params[:id])
+    comment = Comment.create(reply: params[:reply], blog: blog, user: current_user)
+    redirect '/blogs'
   end
 
   get '/tags/:name' do

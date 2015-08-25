@@ -6,5 +6,5 @@ class Blog
   property :content, Text, :length => 6000
   property :title, String
   has n, :tags, through: Resource
-
+  has n, :comments, through: Resource
 end
