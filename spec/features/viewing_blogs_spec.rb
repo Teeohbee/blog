@@ -3,7 +3,7 @@ require './data_mapper_setup'
 
 feature 'Viewing Bloggs' do
   scenario 'I can see existing bloggs on the blogs page' do
-  Blog.create(content: 'First Blog', title:'My First Blog')
+    Blog.create(content: 'First Blog', title: 'My First Blog')
 
     visit '/blogs'
 
@@ -14,18 +14,18 @@ feature 'Viewing Bloggs' do
   end
 
   before(:each) do
-  Blog.create(content: 'This is a new blog',
-              title: 'First Blog',
-              tags: [Tag.first_or_create(name: 'Sport')])
-  Blog.create(content: 'The tech industry',
-              title: 'Tech News',
-              tags: [Tag.first_or_create(name: 'Tech')])
-  Blog.create(content: 'The best holiday',
-              title: 'France is awesome',
-              tags: [Tag.first_or_create(name: 'Holidays')])
-  Blog.create(content: 'Never go abroad',
-              title: 'England is wet',
-              tags: [Tag.first_or_create(name: 'Holidays')])
+    Blog.create(content: 'This is a new blog',
+                title: 'First Blog',
+                tags: [Tag.first_or_create(name: 'Sport')])
+    Blog.create(content: 'The tech industry',
+                title: 'Tech News',
+                tags: [Tag.first_or_create(name: 'Tech')])
+    Blog.create(content: 'The best holiday',
+                title: 'France is awesome',
+                tags: [Tag.first_or_create(name: 'Holidays')])
+    Blog.create(content: 'Never go abroad',
+                title: 'England is wet',
+                tags: [Tag.first_or_create(name: 'Holidays')])
   end
 
   scenario 'I can filter blogs by tags' do
@@ -37,5 +37,4 @@ feature 'Viewing Bloggs' do
       expect(page).to have_content('Holidays')
     end
   end
-
 end

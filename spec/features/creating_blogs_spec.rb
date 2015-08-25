@@ -1,5 +1,10 @@
 feature 'Creating blogs' do
 
+before(:each) do
+  user = build :user
+  sign_up(user)
+end
+
   scenario 'I can create a new blog' do
     visit '/blogs/new'
     fill_in 'content', with: 'First blog'
@@ -12,7 +17,8 @@ feature 'Creating blogs' do
   end
 
   scenario ' I can see time stamps on blog posts' do
-    Blog.create(title: 'Test title', content: 'Test content', time: '14:11')
+    user = User.first
+    user.blogs.create(title: 'Test title', content: 'Test content', time: '14:11')
     visit '/blogs'
     expect(page.status_code).to eq 200
     within 'ul#blogs' do
@@ -22,5 +28,16 @@ feature 'Creating blogs' do
 
   scenario 'there are no blogs in the database at the start of the test' do
     expect(Blog.count).to eq 0
+  end
+
+  def sign_up(user)
+    visit '/users/new'
+    fill_in :email, with: user.email
+    fill_in :username, with: user.username
+    fill_in :name, with: user.name
+    fill_in :phone, with: user.phone
+    fill_in :password, with: user.password
+    fill_in :password_confirmation, with: user.password_confirmation
+    click_button 'Sign up'
   end
 end

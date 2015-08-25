@@ -7,4 +7,5 @@ class Blog
   property :time, Time
 
   has n, :tags, through: Resource
+  belongs_to :user
 end
