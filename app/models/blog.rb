@@ -7,4 +7,7 @@ class Blog
   property :title, String
   has n, :tags, through: Resource
   has n, :comments, through: Resource
+
+  validates_presence_of :content  
+
 end

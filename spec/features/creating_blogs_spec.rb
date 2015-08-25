@@ -17,4 +17,12 @@ feature 'Creating blogs' do
   scenario 'there are no blogs in the database at the start of the test' do
     expect(Blog.count).to eq 0
   end
+
+  scenario 'I cannot add an empty blog to the database' do
+    user = build :user
+    blog = build(:blog, content:"")
+    sign_up(user)
+    write_blog(user, blog)
+    expect { write_blog(user, blog) }.to change(Blog, :count).by(0)
+  end 
 end

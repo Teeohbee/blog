@@ -25,21 +25,15 @@ feature 'In order to add a comment to a post' do
     blog = build :blog
     sign_up(user)
     write_blog(user, blog)
-    expect{ write_comment }.to change(Comment, :count).by(1)
+    expect{ write_comment("sample comment") }.to change(Comment, :count).by(1)
   end
 
-def write_blog(user, blog)
-  visit '/blogs/new'
-  fill_in :title, with: blog.title
-  fill_in :content, with: blog.content
-  fill_in :tag, with: 'sample'
-  click_button 'Create Blog'
-end
-
-def write_comment()
-  visit '/blogs'
-  fill_in :reply, with: "Your blog has blown me apart"
-  click_button 'Reply'
-end
+  scenario 'I cannot submit an empty comment' do
+    user = build :user
+    blog = build :blog
+    sign_up(user)
+    write_blog(user, blog)
+    expect{ write_comment("") }.to change(Comment, :count).by(0)
+  end
 
 end 
