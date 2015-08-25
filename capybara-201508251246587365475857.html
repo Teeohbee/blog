@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>Layout
+</head>
+
+<body>
+Welcome, juantest
+<form method='post' action='/sessions'>
+<input type='submit' value='Sign out'>
+<input type='hidden' name='_method' value='delete'>
+</form>
+<form action='/blogs' method='post'>
+    <label for='title'> Title </label>
+  <input type='text' name='title'>
+    <label for='content'> Content </label>
+  <textarea name='content' rows="50" cols="50"> Write Your Blog Here: </textarea>
+    <label for='tag'> Tag </label>
+  <input type='text' name='tag'>
+  <input type='submit' value='Create Blog'>
+</form></body>
+
+</html>

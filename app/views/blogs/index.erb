@@ -7,5 +7,10 @@
       Blog:   <%= blog.content%>
       Tag: <%= blog.tags.map(&:name)%>
     </li>
+    Comment Box
+    <form method="post" action="/blogs">
+      <input type="text" name="reply">
+      <input type="submit" value="Reply">
+    </form>
   <% end %>
 </ul>

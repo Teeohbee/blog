@@ -10,5 +10,4 @@ require './app/models/user.rb'
 
 DataMapper.finalize
 
-DataMapper.auto_upgrade!
 DataMapper.auto_migrate!

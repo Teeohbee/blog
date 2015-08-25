@@ -1,3 +1,4 @@
+require_relative 'tag'
 class Blog
   include DataMapper::Resource
 
@@ -5,4 +6,5 @@ class Blog
   property :content, Text, :length => 6000
   property :title, String
   has n, :tags, through: Resource
+
 end
