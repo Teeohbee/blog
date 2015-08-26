@@ -9,7 +9,7 @@ class BlogApp < Sinatra::Base
 
   get '/' do
     'Hello BlogApp!'
-    erb :'index'
+    redirect '/blogs'
   end
 
   get '/users/new' do
