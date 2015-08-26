@@ -1,5 +1,6 @@
 require 'spec_helper'
 require './data_mapper_setup'
+require 'byebug'
 
 feature 'Viewing Bloggs' do
 
@@ -28,6 +29,15 @@ feature 'Viewing Bloggs' do
     end
   end
 
+   scenario 'when viewing a comment I can see associated comments' do
+    user = build :user
+    blog = build :blog
+    sign_up(user)
+    write_blog(user, blog)
+    fill_in :reply, with: "Yo"
+    expect(page).to have_content("Yo")
+   end 
+
   scenario 'I can filter blogs by tags' do
     visit '/tags/Holidays'
     within 'ul#blogs' do
@@ -36,16 +46,5 @@ feature 'Viewing Bloggs' do
       expect(page).to have_content('Holidays')
       expect(page).to have_content('Holidays')
     end
-  end
-
-  def sign_up(user)
-    visit '/users/new'
-    fill_in :email, with: user.email
-    fill_in :username, with: user.username
-    fill_in :name, with: user.name
-    fill_in :phone, with: user.phone
-    fill_in :password, with: user.password
-    fill_in :password_confirmation, with: user.password_confirmation
-    click_button 'Sign up'
   end
 end
