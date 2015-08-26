@@ -73,6 +73,8 @@ class BlogApp < Sinatra::Base
   post '/comments' do
     blog = Blog.get(params[:id])
     comment = Comment.create(reply: params[:reply], blog: blog, user: current_user)
+    blog.comments << comment
+    blog.save
     redirect '/blogs'
   end
 

@@ -13,6 +13,8 @@
     <%= blog.time %>
     Tags:
     <%= blog.tags.map(&:name)%>
+    Comments:
+    <%= blog.comments.map(&:reply) %>
   </li>
   Comment Box
   <form method="post" action="/comments">
