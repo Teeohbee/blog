@@ -1,3 +1,4 @@
+require 'byebug'
 require 'sinatra/base'
 require_relative '../data_mapper_setup'
 
@@ -54,11 +55,25 @@ class BlogApp < Sinatra::Base
   end
 
   post '/blogs' do
-    blog = Blog.create(content: params[:content], title: params[:title])
-    tag = Tag.create(name: params[:tag])
-    blog.tags << tag
-    blog.save
-    redirect to('/blogs')
+    user = User.first(id: session[:user_id])
+    if user
+      blog = user.blogs.create(content: params[:content], title: params[:title], time: Time.now)
+      tags_array = (params[:tags]).split(" ")
+      tags_array.each do |word|
+        tag = Tag.create(name: word.downcase)
+        blog.tags << tag
+        blog.save
+      end
+      redirect to('/blogs')
+    else
+      redirect to('/sessions/new')
+    end
+  end
+
+  post '/comments' do
+    blog = Blog.get(params[:id])
+    comment = Comment.create(reply: params[:reply], blog: blog, user: current_user)
+    redirect '/blogs'
   end
 
   get '/tags/:name' do
@@ -77,4 +92,4 @@ class BlogApp < Sinatra::Base
 
   # start the server if ruby file executed directly
   run! if app_file == $0
-  end
+end

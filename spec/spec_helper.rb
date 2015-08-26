@@ -9,6 +9,7 @@ require 'capybara/rspec'
 require 'rspec'
 require 'factory_girl'
 require 'database_cleaner'
+require 'helpers/VariousHelpers'
 
 Capybara.app = BlogApp
 
@@ -39,4 +40,7 @@ RSpec.configure do |config|
    config.after(:each) do
      DatabaseCleaner.clean
    end
+
+   config.include VariousHelpers
+
 end

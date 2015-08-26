@@ -1,11 +1,24 @@
-<h1> Blogs </h1>
+<h1>
+  Blogs
+</h1>
 
 <ul id="blogs">
   <% @blogs.each do |blog| %>
-    <li>
-      Title: <%= blog.title %>
-      Blog:   <%= blog.content%>
-      Tag: <%= blog.tags.map(&:name)%>
-    </li>
+  <li>
+    Title:
+    <%= blog.title %>
+    Blog:
+    <%= blog.content%>
+    Time:
+    <%= blog.time %>
+    Tags:
+    <%= blog.tags.map(&:name)%>
+  </li>
+  Comment Box
+  <form method="post" action="/comments">
+    <input type="hidden" name="id" value="<%= blog.id %>">
+    <input type="text" name="reply">
+    <input type="submit" value="Reply">
+  </form>
   <% end %>
 </ul>

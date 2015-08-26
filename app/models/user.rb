@@ -17,6 +17,8 @@ class User
   validates_uniqueness_of :username
   validates_uniqueness_of :email
 
+  has n, :blogs
+
   def password=(password)
     @password = password
     self.password_digest = BCrypt::Password.create(password)
