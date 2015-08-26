@@ -1,3 +1,4 @@
+require_relative 'tag'
 class Blog
   include DataMapper::Resource
 
@@ -7,5 +8,9 @@ class Blog
   property :time, Time
 
   has n, :tags, through: Resource
+  has n, :comments, through: Resource
+
   belongs_to :user
+  validates_presence_of :content
+
 end

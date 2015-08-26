@@ -1,3 +1,4 @@
+require 'byebug'
 require 'sinatra/base'
 require_relative '../data_mapper_setup'
 
@@ -67,6 +68,12 @@ class BlogApp < Sinatra::Base
     else
       redirect to('/sessions/new')
     end
+  end
+
+  post '/comments' do
+    blog = Blog.get(params[:id])
+    comment = Comment.create(reply: params[:reply], blog: blog, user: current_user)
+    redirect '/blogs'
   end
 
   get '/tags/:name' do

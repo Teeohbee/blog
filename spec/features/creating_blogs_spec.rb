@@ -1,3 +1,5 @@
+require_relative 'user_management_spec'
+
 feature 'Creating blogs' do
 
 before(:each) do
@@ -49,5 +51,13 @@ end
     fill_in :password, with: user.password
     fill_in :password_confirmation, with: user.password_confirmation
     click_button 'Sign up'
+  end
+
+  scenario 'I cannot add an empty blog to the database' do
+    user = build :user
+    blog = build(:blog, content:"")
+    sign_up(user)
+    write_blog(user, blog)
+    expect { write_blog(user, blog) }.to change(Blog, :count).by(0)
   end
 end
