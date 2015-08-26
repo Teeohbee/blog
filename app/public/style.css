@@ -1,0 +1,59 @@
+body {
+  background: url("seamless-baby-blue-patterns-1.jpg");
+}
+
+header {
+  font-size: 5em;
+  text-align: center;
+  font-weight: bold;
+  font-family: 'Contrail One', cursive;
+}
+
+footer {
+  text-align: center;
+  font-weight: bold;
+  font-size: .75em;
+  margin-bottom: 20px;
+}
+
+h1 {
+  font-size: 4em;
+  padding-left: 40px;
+}
+
+ul {
+  padding-left: 0;
+}
+
+li {
+  list-style-type: none;
+}
+
+.Title {
+  font-size: 1.5em;
+  font-weight: bold;
+  padding-left: 40px;
+}
+
+.Blog {
+  font-size: 1em;
+  font-family: 'Gloria Hallelujah', cursive;
+  padding-right: 60px;
+  padding-left: 60px;
+}
+
+.Time,
+.Tags,
+.Comments {
+  padding-left: 40px;
+}
+
+.Comments {
+  font-family: 'Contrail One', cursive;
+}
+
+#subbtn {
+  display: inline-block;
+  float: right;
+  margin-right: 25px;
+}

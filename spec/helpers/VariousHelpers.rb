@@ -9,7 +9,7 @@ module VariousHelpers
   end
 
   def write_comment(text)
-    visit '/blogs'  
+    visit '/blogs'
     fill_in :reply, with: text
     click_button 'Reply'
   end

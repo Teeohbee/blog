@@ -75,7 +75,7 @@ feature 'As a registered user' do
     click_button 'Sign out'
     expect(page).to_not have_content 'Welcome'
   end
-  
+
 end
 
 

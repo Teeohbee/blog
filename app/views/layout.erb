@@ -1,19 +1,33 @@
 <!DOCTYPE html>
 <html>
 
-<head>Layout
-</head>
+  <head>
+    <link rel="stylesheet" href="/normalize.css">
+    <link  rel="stylesheet" href="/style.css">
+    <link href='http://fonts.googleapis.com/css?family=Gloria+Hallelujah|Permanent+Marker|Contrail+One' rel='stylesheet' type='text/css'>
+    <title> Layout </title>
+  </head>
 
-<body>
-  <% if current_user %>
-    Welcome,
+  <body>
+    <% if current_user %>
+      Welcome,
     <%= current_user.username %>
-      <form method='post' action='/sessions'>
-        <input type='submit' value='Sign out'>
-        <input type='hidden' name='_method' value='delete'>
-      </form>
-  <% end %>
-<%= yield %>
-</body>
+    <form method='post' action='/sessions'>
+      <input id='subbtn' type='submit' value='Sign out'>
+      <input type='hidden' name='_method' value='delete'>
+    </form>
+    <header>
+      The Bloggers Blog of Nonsense!
+    </header>
+
+
+    <% end %>
+  <%= yield %>
+
+    <footer>
+      Copyright of TeamTaroon &copy;
+    </footer>
+
+  </body>
 
 </html>

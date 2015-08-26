@@ -2,25 +2,36 @@
   Blogs
 </h1>
 
-<ul id="blogs">
+<ul >
   <% @blogs.each do |blog| %>
   <li>
-    Title:
-    <%= blog.title %>
-    Blog:
-    <%= blog.content%>
-    Time:
-    <%= blog.time %>
-    Tags:
-    <%= blog.tags.map(&:name)%>
-    Comments:
-    <%= blog.comments.map(&:reply) %>
+    <article class="Title">
+      <%= blog.title %>
+    </article>
+    <br>
+    <article class="Blog">
+      <%= blog.content%>
+    </article>
+    <br>
+    <article class="Time">
+      <%= blog.time.strftime '%d-%m-%Y %H:%M' %>
+    </article>
+    <br>
+    <article class="Tags">
+      <%= blog.tags.map(&:name)%>
+    </article>
+    <br>
+    <article class="Comments">
+      <%= blog.comments.map(&:reply) %>
+    </article>
   </li>
-  Comment Box
+  Comment
   <form method="post" action="/comments">
     <input type="hidden" name="id" value="<%= blog.id %>">
-    <input type="text" name="reply">
+   <textarea name='reply' rows="2" cols="170"></textarea>
     <input type="submit" value="Reply">
   </form>
+    <br>
+    <br>
   <% end %>
 </ul>
