@@ -1,5 +1,4 @@
 feature 'Adding tags' do
-
   before(:each) do
     user = build :user
     sign_up(user)
@@ -36,5 +35,4 @@ feature 'Adding tags' do
     click_button 'Create Blog'
     expect(blog.tags.map(&:reply)).not_to include(" ")
   end
-
 end

@@ -138,6 +138,7 @@ DEPENDENCIES
   dm-validations
   factory_girl
   launchy
+  rack
   rspec
   rspec-sinatra
   sinatra

@@ -2,7 +2,7 @@
   Blogs
 </h1>
 
-<ul >
+<ul id="blogs">
   <% @blogs.each do |blog| %>
   <li>
     <article class="Title">
@@ -14,7 +14,7 @@
     </article>
     <br>
     <article class="Time">
-      <%= blog.time.strftime '%d-%m-%Y %H:%M' %>
+      <%= blog.time.strftime "%d-%m-%Y %H:%M" %>
     </article>
     <br>
     <article class="Tags">
@@ -28,9 +28,14 @@
   Comment
   <form method="post" action="/comments">
     <input type="hidden" name="id" value="<%= blog.id %>">
-   <textarea name='reply' rows="2" cols="170"></textarea>
+    <textarea name='reply' rows="2" cols="170"></textarea>
     <input type="submit" value="Reply">
   </form>
+    <br>
+    <br>
+    <button id="increase" type="button"> UP </button>
+    <p id="score"></p>
+    <button id="decrease" type="button"> DOWN </button>
     <br>
     <br>
   <% end %>

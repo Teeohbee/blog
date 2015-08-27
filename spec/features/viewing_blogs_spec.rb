@@ -3,10 +3,6 @@ require './data_mapper_setup'
 require 'byebug'
 
 feature 'Viewing Bloggs' do
-
-
-  # end
-
   scenario 'I can see existing bloggs on the blogs page' do
     user = build :user
     blog = build(:blog, content: "This is a new blog")
@@ -34,16 +30,20 @@ feature 'Viewing Bloggs' do
     user = User.first
     user.blogs.create(content: 'This is a new blog',
                       title: 'First Blog',
-                      tags: [Tag.first_or_create(name: 'Sport')])
+                      tags: [Tag.first_or_create(name: 'Sport')],
+                      time: Time.now)
     user.blogs.create(content: 'The tech industry',
                       title: 'Tech News',
-                      tags: [Tag.first_or_create(name: 'Tech')])
+                      tags: [Tag.first_or_create(name: 'Tech')],
+                      time: Time.now)
     user.blogs.create(content: 'The best holiday',
                       title: 'France is awesome',
-                      tags: [Tag.first_or_create(name: 'Holidays')])
+                      tags: [Tag.first_or_create(name: 'Holidays')],
+                      time: Time.now)
     user.blogs.create(content: 'Never go abroad',
                       title: 'England is wet',
-                      tags: [Tag.first_or_create(name: 'Holidays')])
+                      tags: [Tag.first_or_create(name: 'Holidays')],
+                      time: Time.now)
     visit '/tags/Holidays'
     within 'ul#blogs' do
       expect(page).not_to have_content('Sport')
