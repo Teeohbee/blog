@@ -5,7 +5,7 @@ displayScore = function() {
 }
 
 $(document).ready(function() {
-  $("#score").show(function() {
+  $('#score').show(function() {
     displayScore();
   })
   $("#increase").click(function() {
