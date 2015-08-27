@@ -7,16 +7,30 @@
 <h1> Sign Up </h1>
 
 <body>
-Enter the following to sign up
-<form method='post' action='/users'>
-  <input type="text" name="email" value="">Email</input>
-  <input type="text" name="username" value="">Username</input>
-  <input type="text" name="name" value="">Name</input>
-  <input type="text" name="phone" value="">Phone Number</input>
-  <input type="password" name="password" value="">Password</input>
-  <input type="password" name="password_confirmation" value="">Password Confirmation</input>
-  <input type="submit" name="signup" value="Sign up">
-</form>
+<article class="signup">
+<p> Enter the following to sign up </p>
+  <form method='post' action='/users'>
+    <label id="labels" for="email"> Email: </label>
+    <input id="inputs" type="text" name="email" value=""></input>
+    <br>
+    <label id="labels" for="username"> Username: </label>
+    <input id="inputs" type="text" name="username" value=""></input>
+    <br>
+    <label id="labels" for="name"> Name: </label>
+    <input id="inputs" type="text" name="name" value=""></input>
+    <br>
+    <label id="labels" for="phone"> Phone Number: </label>
+    <input id="inputs" type="text" name="phone" value=""></input>
+    <br>
+    <label id="labels" for="password"> Password: </label>
+    <input id="inputs" type="password" name="password" value=""></input>
+    <br>
+    <label id="labels" for="password_confirmation"> Password Confirmation: </label>
+    <input id="inputs" type="password" name="password_confirmation" value=""></input>
+    <br>
+    <input id="signupbtn" type="submit" name="signup" value="Sign up">
+  </form>
+</article>
 </body>
 
 </html>
