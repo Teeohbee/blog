@@ -1,18 +1,22 @@
 <!DOCTYPE html>
 <html>
 
-  <head>
-    <title>
-      Log in
-    </title>
-  </head>
-
-  <body>
-    <form method='post' action='/sessions'>
-      <input type="text" name="email" value="">Email</input>
-      <input type="password" name="password" value="">Password</input>
-      <input type="submit" value="Sign in">
-    </form>
-  </body>
+<head>
+  <title>
+    Log in
+  </title>
+</head>
+<h1>Log in</h1>
+<body>
+  <article class="forms">
+  <form method='post' action='/sessions'>
+      <input id='inputs' type="text" name="email" value="" placeholder="Email">
+    <br>
+      <input id='inputs' type="password" name="password" value="" placeholder="Password">
+    <br>
+    <input id='button' type="submit" value="Sign in">
+  </form>
+</article>
+</body>
 
 </html>

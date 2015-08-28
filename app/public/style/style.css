@@ -1,17 +1,24 @@
 /* All pages */
 
+/*form  { display: table;      }
+p     { display: table-row;  }
+label { display: table-cell; }
+input { display: table-cell; }*/
+
 body {
   background-color: #EEF5DB;
 }
 
 header {
+  color: white;
   font-size: 5em;
-  text-align: center;
+  text-align: left;
   font-weight: bold;
   font-family: 'Contrail One', cursive;
   margin-bottom: 25px;
   background-color: #FE5F55;
-}
+  padding: 25px 25px;
+  }
 
 footer {
   text-align: center;
@@ -19,11 +26,14 @@ footer {
   font-size: .75em;
   margin-bottom: 20px;
   background-color: #4F6367;
+  /*position: absolute;*/
+  bottom: 0;
 }
 
 h1 {
-  font-size: 4em;
+  font-size: 3em;
   padding-left: 40px;
+  color: #4F6367;
 }
 
 /* Viewing blogs page */
@@ -81,6 +91,7 @@ li {
 #decrease {
   width: 25px;
   margin-top: 10px;
+  font-weight: bold;
 }
 
 #increase {
@@ -97,10 +108,19 @@ li {
   margin-right: 20px;
 }
 
-#subbtn {
-  display: inline-block;
+#navbutton {
+  border-radius: 100px;
   float: right;
-  margin-right: 25px;
+  margin-top: 55px;
+  margin-right: 15px;
+  padding: 10px;
+  width: 120px;
+  border: none;
+}
+
+#button {
+  margin-bottom: 20px;
+  border-radius: 5px;
 }
 
 #welcome_message {
@@ -115,8 +135,8 @@ p {
   font-size: 1.2em;
 }
 
-.signup {
-  font-weight: bold;
+.forms {
+  text-align: center;
 }
 
 #labels {
@@ -131,15 +151,6 @@ p {
   margin-bottom: 15px;
 }
 
-#signupbtn,
-#createblogbtn {
-  margin-left: 660px;
-  padding: 5px;
-  margin-bottom: 20px;
-  border-radius: 10px;
-  background-color: yellow;
-  width: 100px;
-}
 
 /* Creting blogs page */
 
