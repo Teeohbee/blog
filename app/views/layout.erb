@@ -1,19 +1,70 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
-<head>Layout
-</head>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="/style/normalize.css">
+    <link rel="stylesheet" href="/style/style.css">
+    <link href='http://fonts.googleapis.com/css?family=Gloria+Hallelujah|Permanent+Marker|Contrail+One' rel='stylesheet' type='text/css'>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <!-- <script src="../../jasmine/lib/jasmine-jquery.js"></script> -->
+    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 
-<body>
-  <% if current_user %>
-    Welcome,
+    <title>
+      Blog
+    </title>
+  </head>
+
+  <body>
+<div id="welcome_message">
+    <% if current_user %>
+      Welcome,
     <%= current_user.username %>
-      <form method='post' action='/sessions'>
-        <input type='submit' value='Sign out'>
-        <input type='hidden' name='_method' value='delete'>
-      </form>
-  <% end %>
-<%= yield %>
-</body>
+    <form method='post' action='/sessions'>
+      <input id='navbutton' type='submit' value='Sign out'>
+      <input type='hidden' name='_method' value='delete'>
+    </form>
+    <% else %>
+    <form method='get' action='/sessions/new'>
+    <input id='navbutton' type='submit' value='Sign in'>
+    </form>
+    <form method='get' action='/users/new'>
+    <input id='navbutton' type='submit' value='Sign up'>
+    </form>
+    <% end %>
+</div>
+  <!-- <div class="ui-widget">
+    <form action="/tags" method="post">
+    <label for="tags">Search Tags: </label>
+    <input id="tags">
+    <button type="submit">Search</button>
+    </form>
+  </div> -->
+
+
+    <header>
+      Napoleon Blogaparte
+    </header>
+
+    <div class="headerContent">
+      <div class='nav'>
+        <ul>
+          <li><a href='/blogs'>Home</a></li>
+          <li><a href='/blogs/new'>Create Blog</a></li>
+        </ul>
+      </div>
+    </div>
+
+  <%= yield %>
+
+    <footer>
+      Copyright of TeamTaroon &copy;
+    </footer>
+
+  </body>
+
+  <script src="javascript/Ranking.js"></script>
+  <script src="javascript/blog.js"></script>
+  <script src='javascript/search.js'></script>
 
 </html>

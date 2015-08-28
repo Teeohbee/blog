@@ -1,5 +1,4 @@
 feature 'Adding tags' do
-
   before(:each) do
     user = build :user
     sign_up(user)
@@ -27,15 +26,13 @@ feature 'Adding tags' do
     expect(user.blogs.tags.map(&:name)).to include('space', 'guns')
   end
 
-  def sign_up(user)
-    visit '/users/new'
-    fill_in :email, with: user.email
-    fill_in :username, with: user.username
-    fill_in :name, with: user.name
-    fill_in :phone, with: user.phone
-    fill_in :password, with: user.password
-    fill_in :password_confirmation, with: user.password_confirmation
-    click_button 'Sign up'
+  scenario 'I cannot add a empty tag' do
+    blog = build :blog
+    visit '/blogs/new'
+    fill_in :title, with: blog.title
+    fill_in :content, with: blog.content
+    fill_in :tags, with: " "
+    click_button 'Create Blog'
+    expect(blog.tags.map(&:reply)).not_to include(" ")
   end
-
 end

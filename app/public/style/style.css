@@ -1,0 +1,218 @@
+/* All pages */
+
+/*form  { display: table;      }
+p     { display: table-row;  }
+label { display: table-cell; }
+input { display: table-cell; }*/
+
+body {
+  background-color: #EEF5DB;
+}
+
+header {
+  color: white;
+  font-size: 5em;
+  text-align: left;
+  font-weight: bold;
+  font-family: 'Contrail One', cursive;
+  background-color: #FE5F55;
+  padding: 25px 25px;
+  }
+
+footer {
+  text-align: center;
+  font-weight: bold;
+  font-size: .75em;
+  margin-bottom: 20px;
+  background-color: #4F6367;
+  bottom: 0;
+}
+
+.headerContent {
+  width: 100%;
+  height: auto;
+  margin: 0 auto;
+}
+
+.nav {
+  height: 40px;
+  background: #CB4C44;
+  margin-bottom: 20px;
+}
+
+.nav ul {
+  margin: 0;
+  padding: 0;
+}
+
+.nav ul li {
+  list-style: none;
+  display: inline-block;
+}
+
+.nav ul li a {
+  text-decoration: none;
+  float: left;
+  padding: 10px 20px;
+  color: white;
+}
+
+.nav ul li a:hover {
+  color: #78B5CA;
+}
+
+/*.headerBreak {
+  width: 100%;
+  height: 0;
+  border-bottom: 2px solid #a7e0ee;
+}*/
+
+h1 {
+  font-size: 3em;
+  padding-left: 40px;
+  color: #4F6367;
+}
+
+/* Viewing blogs page */
+
+ul {
+  padding-left: 0;
+}
+
+li {
+  list-style-type: none;
+}
+
+.Title {
+  font-size: 1.5em;
+  font-weight: bold;
+  padding-left: 40px;
+  margin-top: 30px;
+}
+
+.Blog {
+  font-size: 1em;
+  font-family: 'Gloria Hallelujah', cursive;
+  margin-right: 60px;
+  margin-left: 60px;
+  padding-right: 10px;
+  padding-left: 10px;
+  background-color: #78B5CA;
+  float: right;
+}
+
+.Time,
+.Tags,
+.Comments,
+.comment_box,
+.author {
+  padding-left: 65px;
+  padding-right: 65px;
+  margin-bottom: 5px;
+}
+
+.Time,
+.author {
+  text-align: right;
+}
+
+.Comments {
+  font-family: 'Contrail One', cursive;
+}
+
+.ranking {
+  padding-left: 65px;
+  padding-right: 65px;
+}
+
+#increase,
+#decrease {
+  width: 25px;
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+#increase {
+  color: green;
+}
+
+#decrease {
+  color: red;
+}
+
+#score {
+  float: left;
+  margin-top: 12px;
+  margin-right: 20px;
+}
+
+#navbutton {
+  border-radius: 100px;
+  float: right;
+  margin-top: 55px;
+  margin-right: 15px;
+  padding: 10px;
+  width: 120px;
+  border: none;
+}
+
+#button {
+  margin-bottom: 20px;
+  border-radius: 100px;
+  width: 120px;
+  background-color: #CB4C44;
+  border: none;
+  color: white;
+  padding: 10px;
+}
+
+#replybutton {
+  float:right;
+  margin-bottom: 20px;
+  border-radius: 100px;
+  width: 120px;
+  background-color: #CB4C44;
+  border: none;
+  color: white;
+  padding: 10px;
+}
+
+#welcome_message {
+  background-color: #FE5F55;
+}
+
+/* SignUp Page*/
+
+p {
+  margin-left: 500px;
+  margin-bottom: 15px;
+  font-size: 1.2em;
+}
+
+.forms {
+  text-align: center;
+}
+
+#labels {
+  margin-left: 500px;
+  margin-right: 15px;
+  margin-bottom: 15px;
+  font-style: italic;
+}
+
+#inputs {
+  display: inline-table;
+  margin-bottom: 15px;
+}
+
+
+/* Creting blogs page */
+
+#title,
+#content,
+#tags {
+  margin-left: 50px;
+  margin-right: 15px;
+  font-weight: bold;
+  font-style: italic;
+}

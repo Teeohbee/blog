@@ -1,11 +1,10 @@
 require_relative 'user_management_spec'
 
 feature 'Creating blogs' do
-
-before(:each) do
-  user = build :user
-  sign_up(user)
-end
+  before(:each) do
+    user = build :user
+    sign_up(user)
+  end
 
   scenario 'I can create a new blog' do
     visit '/blogs/new'
@@ -55,7 +54,7 @@ end
 
   scenario 'I cannot add an empty blog to the database' do
     user = build :user
-    blog = build(:blog, content:"")
+    blog = build(:blog, content: "")
     sign_up(user)
     write_blog(user, blog)
     expect { write_blog(user, blog) }.to change(Blog, :count).by(0)

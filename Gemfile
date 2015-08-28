@@ -1,4 +1,4 @@
-source 'https://rubygem.org'
+source 'https://rubygems.org'
 ruby '2.2.2'
 
 group :test do
@@ -9,11 +9,12 @@ group :test do
 end
 
 gem 'bcrypt'
+gem 'byebug'
 gem 'database_cleaner'
 gem 'data_mapper'
 gem 'dm-postgres-adapter'
 gem 'dm-validations'
+gem 'launchy'
+gem 'rack'
 gem 'sinatra'
 gem 'sinatra-flash'
-gem 'byebug'
-gem 'launchy'

@@ -1,9 +1,11 @@
-<form action='/blogs' method='post'>
-    <label for='title'> Title </label>
-  <input type='text' name='title'>
-    <label for='content'> Content </label>
-  <textarea name='content' rows="50" cols="50"> Write Your Blog Here: </textarea>
-    <label for='tags'> Tags </label>
-  <input type='text' name='tags'>
-  <input type='submit' value='Create Blog'>
-</form>
+<article class="forms">
+  <form action='/blogs' method='post'>
+    <input id="inputs" type='text' name='title' placeholder='Title'>
+    <br>
+    <textarea id="inputs" name='content' rows="10" cols="50" placeholder="Write your blog post here..."></textarea>
+    <br>
+    <input id="inputs" type='text' name='tags' placeholder="Tags"> Seperate multiple tags with a space
+    <br>
+    <input id='button' type='submit' value='Create Blog'>
+  </form>
+</article>

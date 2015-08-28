@@ -1,19 +1,31 @@
 <!DOCTYPE html>
 <html>
-<head>User Sign Up</title>
-</head>
+  <head>
+    <title> User Sign Up </title>
+  </head>
 
-<body>
-Enter the following to sign up
-<form method='post' action='/users'>
-  <input type="text" name="email" value="">Email</input>
-  <input type="text" name="username" value="">Username</input>
-  <input type="text" name="name" value="">Name</input>
-  <input type="text" name="phone" value="">Phone Number</input>
-  <input type="password" name="password" value="">Password</input>
-  <input type="password" name="password_confirmation" value="">Password Confirmation</input>
-  <input type="submit" name="signup" value="Sign up">
-</form>
-</body>
+  <h1> Sign Up </h1>
+
+  <body>
+    <article class="forms">
+    Enter the following to sign up
+    <br><br>
+      <form method='post' action='/users'>
+        <input id="inputs" type="text" name="email" value="" placeholder="Email"></input>
+        <br>
+        <input id="inputs" type="text" name="username" value="" placeholder="Username"></input>
+        <br>
+        <input id="inputs" type="text" name="name" value="" placeholder="Name"></input>
+        <br>
+        <input id="inputs" type="text" name="phone" value="" placeholder="Phone No."></input>
+        <br>
+        <input id="inputs" type="password" name="password" value="" placeholder="Password"></input>
+        <br>
+        <input id="inputs" type="password" name="password_confirmation" value="" placeholder="Password Confirmation"></input>
+        <br>
+        <input id='button' type="submit" name="signup" value="Sign up">
+      </form>
+    </article>
+  </body>
 
 </html>

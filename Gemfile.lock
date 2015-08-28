@@ -1,5 +1,5 @@
 GEM
-  remote: https://rubygem.org/
+  remote: https://rubygems.org/
   specs:
     activesupport (4.2.3)
       i18n (~> 0.7)
@@ -138,6 +138,7 @@ DEPENDENCIES
   dm-validations
   factory_girl
   launchy
+  rack
   rspec
   rspec-sinatra
   sinatra
