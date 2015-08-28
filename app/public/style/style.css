@@ -1,7 +1,7 @@
 /* All pages */
 
 body {
-  background: url("seamless-baby-blue-patterns-1.jpg");
+  background-color: #EEF5DB;
 }
 
 header {
@@ -10,6 +10,7 @@ header {
   font-weight: bold;
   font-family: 'Contrail One', cursive;
   margin-bottom: 25px;
+  background-color: #FE5F55;
 }
 
 footer {
@@ -17,6 +18,7 @@ footer {
   font-weight: bold;
   font-size: .75em;
   margin-bottom: 20px;
+  background-color: #4F6367;
 }
 
 h1 {
@@ -47,13 +49,16 @@ li {
   margin-left: 60px;
   padding-right: 10px;
   padding-left: 10px;
-  background-color: white;
+  background-color: #78B5CA;
 }
 
 .Time,
 .Tags,
-.Comments {
+.Comments,
+.comment_box {
   padding-left: 40px;
+  padding-right: 40px;
+
 }
 
 .Comments {
@@ -64,6 +69,10 @@ li {
   display: inline-block;
   float: right;
   margin-right: 25px;
+}
+
+#welcome_message {
+  background-color: #FE5F55;
 }
 
 /* SignUp Page*/

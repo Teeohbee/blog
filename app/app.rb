@@ -7,6 +7,7 @@ class BlogApp < Sinatra::Base
   enable :sessions
   use Rack::MethodOverride
 
+
   get '/' do
     'Hello BlogApp!'
     redirect '/blogs'
@@ -78,6 +79,10 @@ class BlogApp < Sinatra::Base
     redirect '/blogs'
   end
 
+  # post '/tags' do
+  #   redirect "/tags/#{params[:tags]}"
+  # end
+
   get '/tags/:name' do
     tag = Tag.first(name: params[:name])
     @blogs = tag ? tag.blogs : []
@@ -92,6 +97,13 @@ class BlogApp < Sinatra::Base
     current_user ||= User.get(session[:user_id])
   end
 
+  def all_tags
+    all_tags = []
+    Tag.all.each do |tag|
+      all_tags << tag.name
+    end
+    all_tags
+  end
   # start the server if ruby file executed directly
   run! if app_file == $0
 end

@@ -25,12 +25,14 @@
       <%= blog.comments.map(&:reply) %>
     </article>
   </li>
+  <article class="comment_box">
   Comment
   <form method="post" action="/comments">
     <input type="hidden" name="id" value="<%= blog.id %>">
-    <textarea name='reply' rows="2" cols="170"></textarea>
+    <textarea name='reply' rows="2" cols="100"></textarea>
     <input type="submit" value="Reply">
   </form>
+</article>
     <br>
     <br>
     <button id="increase" type="button"> UP </button>

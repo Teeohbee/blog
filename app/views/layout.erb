@@ -4,17 +4,19 @@
   <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="/style/normalize.css">
-    <!-- <link rel="stylesheet" href="/style/style.css"> -->
+    <link rel="stylesheet" href="/style/style.css">
     <link href='http://fonts.googleapis.com/css?family=Gloria+Hallelujah|Permanent+Marker|Contrail+One' rel='stylesheet' type='text/css'>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-    <script src="../../jasmine/lib/jasmine-jquery.js"></script>
+    <!-- <script src="../../jasmine/lib/jasmine-jquery.js"></script> -->
+    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+
     <title>
       Blog
     </title>
   </head>
 
   <body>
-
+<div id="welcome_message">
     <% if current_user %>
       Welcome,
     <%= current_user.username %>
@@ -22,11 +24,21 @@
       <input id='subbtn' type='submit' value='Sign out'>
       <input type='hidden' name='_method' value='delete'>
     </form>
+    <% end %>
+</div>
+  <!-- <div class="ui-widget">
+    <form action="/tags" method="post">
+    <label for="tags">Search Tags: </label>
+    <input id="tags">
+    <button type="submit">Search</button>
+    </form>
+  </div> -->
+
+
     <header>
-      The Bloggers Blog of Nonsense!
+      Napoleon Blogaparte
     </header>
 
-    <% end %>
   <%= yield %>
 
     <footer>
@@ -37,5 +49,6 @@
 
   <script src="javascript/Ranking.js"></script>
   <script src="javascript/blog.js"></script>
+  <script src='javascript/search.js'></script>
 
 </html>
