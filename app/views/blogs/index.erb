@@ -13,6 +13,11 @@
     <%= blog.time %>
     Tags:
     <%= blog.tags.map(&:name)%>
+    Image:
+    <!-- <img src='images/MA-Cropped.png'> -->
+    <br>***<br>
+    <%= blog.image.filename.to_s %>
+
   </li>
   Comment Box
   <form method="post" action="/comments">

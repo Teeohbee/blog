@@ -8,6 +8,8 @@ require './app/models/blog.rb'
 require './app/models/tag.rb'
 require './app/models/user.rb'
 require './app/models/comment.rb'
+require './app/models/imageuploader.rb'
+
 
 DataMapper.finalize
 

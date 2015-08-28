@@ -57,7 +57,8 @@ class BlogApp < Sinatra::Base
   post '/blogs' do
     user = User.first(id: session[:user_id])
     if user
-      blog = user.blogs.create(content: params[:content], title: params[:title], time: Time.now)
+      blog = user.blogs.create(content: params[:content], title: params[:title], time: Time.now, image: params[:image])
+      blog.store_image!
       tags_array = (params[:tags]).split(" ")
       tags_array.each do |word|
         tag = Tag.create(name: word.downcase)
