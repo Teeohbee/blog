@@ -15,7 +15,6 @@ header {
   text-align: left;
   font-weight: bold;
   font-family: 'Contrail One', cursive;
-  margin-bottom: 25px;
   background-color: #FE5F55;
   padding: 25px 25px;
   }
@@ -26,9 +25,47 @@ footer {
   font-size: .75em;
   margin-bottom: 20px;
   background-color: #4F6367;
-  /*position: absolute;*/
   bottom: 0;
 }
+
+.headerContent {
+  width: 100%;
+  height: auto;
+  margin: 0 auto;
+}
+
+.nav {
+  height: 40px;
+  background: #CB4C44;
+  margin-bottom: 20px;
+}
+
+.nav ul {
+  margin: 0;
+  padding: 0;
+}
+
+.nav ul li {
+  list-style: none;
+  display: inline-block;
+}
+
+.nav ul li a {
+  text-decoration: none;
+  float: left;
+  padding: 10px 20px;
+  color: white;
+}
+
+.nav ul li a:hover {
+  color: #78B5CA;
+}
+
+/*.headerBreak {
+  width: 100%;
+  height: 0;
+  border-bottom: 2px solid #a7e0ee;
+}*/
 
 h1 {
   font-size: 3em;
@@ -50,6 +87,7 @@ li {
   font-size: 1.5em;
   font-weight: bold;
   padding-left: 40px;
+  margin-top: 30px;
 }
 
 .Blog {
@@ -120,7 +158,23 @@ li {
 
 #button {
   margin-bottom: 20px;
-  border-radius: 5px;
+  border-radius: 100px;
+  width: 120px;
+  background-color: #CB4C44;
+  border: none;
+  color: white;
+  padding: 10px;
+}
+
+#replybutton {
+  float:right;
+  margin-bottom: 20px;
+  border-radius: 100px;
+  width: 120px;
+  background-color: #CB4C44;
+  border: none;
+  color: white;
+  padding: 10px;
 }
 
 #welcome_message {
