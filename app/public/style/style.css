@@ -50,19 +50,51 @@ li {
   padding-right: 10px;
   padding-left: 10px;
   background-color: #78B5CA;
+  float: right;
 }
 
 .Time,
 .Tags,
 .Comments,
-.comment_box {
-  padding-left: 40px;
-  padding-right: 40px;
+.comment_box,
+.author {
+  padding-left: 65px;
+  padding-right: 65px;
+  margin-bottom: 5px;
+}
 
+.Time,
+.author {
+  text-align: right;
 }
 
 .Comments {
   font-family: 'Contrail One', cursive;
+}
+
+.ranking {
+  padding-left: 65px;
+  padding-right: 65px;
+}
+
+#increase,
+#decrease {
+  width: 25px;
+  margin-top: 10px;
+}
+
+#increase {
+  color: green;
+}
+
+#decrease {
+  color: red;
+}
+
+#score {
+  float: left;
+  margin-top: 12px;
+  margin-right: 20px;
 }
 
 #subbtn {

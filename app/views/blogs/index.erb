@@ -12,7 +12,19 @@
     <article class="Blog">
       <%= blog.content%>
     </article>
+    <div class='ranking'>
+      <button id="increase" type="button">
+        +
+      </button>
+      <article id="score"></article>
+      <button id="decrease" type="button">
+        -
+      </button>
+    </div>
     <br>
+    <article class="author">
+      <%= blog.user.username %>
+    </article>
     <article class="Time">
       <%= blog.time.strftime "%d-%m-%Y %H:%M" %>
     </article>
@@ -22,23 +34,22 @@
     </article>
     <br>
     <article class="Comments">
-      <%= blog.comments.map(&:reply) %>
-    </article>
-  </li>
-  <article class="comment_box">
+      <% blog.comments.each do |comment| %>
+    <li>
+      <%= comment.reply %>
+      -
+      <%= comment.user.username %>
+    </li>
+    <% end %>
+  </article>
+</li>
+<article class="comment_box">
   Comment
-  <form method="post" action="/comments">
-    <input type="hidden" name="id" value="<%= blog.id %>">
-    <textarea name='reply' rows="2" cols="100"></textarea>
+  <form action="/comments" method="post">
+    <input name="id" type="hidden" value="<%= blog.id %>">
+    <textarea cols="100" name='reply' rows="2"></textarea>
     <input type="submit" value="Reply">
   </form>
 </article>
-    <br>
-    <br>
-    <button id="increase" type="button"> UP </button>
-    <p id="score"></p>
-    <button id="decrease" type="button"> DOWN </button>
-    <br>
-    <br>
-  <% end %>
+<% end %>
 </ul>
