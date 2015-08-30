@@ -4,11 +4,11 @@ feature 'In order to sign up' do
   scenario 'There is a sign up page that needs my information' do
     visit '/users/new'
     expect(page).to have_content 'Enter the following to sign up'
-    expect(page).to have_content 'Email'
-    expect(page).to have_content 'Username'
-    expect(page).to have_content 'Name'
-    expect(page).to have_content 'Phone Number'
-    expect(page).to have_content 'Password'
+    expect(page).to have_field 'Email'
+    expect(page).to have_field  'Username'
+    expect(page).to have_field  'Name'
+    expect(page).to have_field  'Phone Number'
+    expect(page).to have_field  'Password'
     expect(page).to have_button 'Sign up'
   end
 
